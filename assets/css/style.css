@@ -1,0 +1,160 @@
+*{
+    font-family: 'Raleway',sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "header"
+        "nav" 
+        "section"
+        "footer";
+    height: 100vh;
+    gap:10px;
+    background: #FCEEF5;
+    color: #3E2723;
+}
+
+header{
+    grid-area:header;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    height: 10vh;
+    background: color #f8d7da;
+    color: black;
+    background: url(../img/header.jpg);
+    text-shadow: 1px 1px 5px rgba(0, 255, 255, 10.5); 
+    font-size: 50px; 
+    font-weight: bold; 
+}
+
+i {
+    font-size: 30px; 
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 10.5); 
+}
+nav{
+    background: #f8d7da;
+    grid-area:nav;
+    padding: 10px;
+    text-align: center;
+}
+
+section {
+    background: #FFDDE2;
+    color: white;
+    grid-area:section;
+    padding: 10px;
+}
+
+footer{
+    background: #e6a4b4;
+    grid-area:footer;
+    text-align: center;
+    padding: 10px;
+}
+
+.card-container {
+	display: flex;
+    flex-direction: column;
+	align-items: center;
+    gap: 10px;	
+}
+
+.card {
+	background-color: #fff8f0;
+	color: #3E2723;
+	padding: 15px;
+	border-radius: 10px;
+	text-align: center;
+	width: 80%;
+}
+/* En mobile-first, solo mostramos la primera card y ocultamos todas las demás */
+/* Esto se anulará en el media query para pantallas más grandes */
+.card:not(:first-child) { 
+    display: none;
+  }
+
+.card img{
+	width: 100%;
+	border-radius: 8px;
+    height: 30vh;
+    object-fit: cover;
+}
+
+.comprar {
+    background-color: pink; 
+    color: white; 
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+@media (min-width: 576px) {
+    
+    body{
+        grid-template-areas: 
+        "header header"
+        "nav section"
+        "footer footer";
+        grid-template-columns: 1fr 3fr;
+        height: 100vh;
+    }
+
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    /* Mostramos nuevamente todas las cards que se ocultaron en mobile */
+    /* Ahora usamos grid para distribuirlas en columnas */
+    .card:nth-child(n) { 
+        display: block; 
+    }
+    .fa-solid.fa-bars { 
+        display: none;
+    }
+    section .pagination {
+        display: none;
+    }
+}
+
+.pagination {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #9e417f;
+    width: fit-content;
+    margin: auto;
+  }
+
+  .pagination a {
+    text-decoration: none;
+    color: blue;
+    font-size: 20px;
+    padding: 10px 15px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+
+  .pagination .active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .pagination .arrow {
+    font-size: 22px;
+    padding: 10px;
+  }
