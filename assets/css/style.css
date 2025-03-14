@@ -28,9 +28,23 @@ header{
     background: color #f8d7da;
     color: black;
     background: url(../img/header.jpg);
-    text-shadow: 1px 1px 5px rgba(0, 255, 255, 10.5); 
+    text-shadow: 1px 1px 5px rgba(234, 137, 154, 10.5); 
     font-size: 50px; 
     font-weight: bold; 
+}
+header span{
+    animation: rebote 1s infinite;
+}
+@keyframes rebote{
+    0%{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(-10px);
+    }
+    100%{
+        transform: translateX(0);
+    }
 }
 
 i {
@@ -38,6 +52,26 @@ i {
     color: white;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 10.5); 
 }
+.logo{
+    height: 10vh;
+    animation: rotate-center 0.6s ease-in-out both;
+
+}
+
+@keyframes rotate-center {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+.logo:hover{
+    transform: scale(1.5);
+    animation: none;
+}
+
+  
 nav{
     background: #f8d7da;
     grid-area:nav;
@@ -85,6 +119,11 @@ footer{
 	border-radius: 8px;
     height: 30vh;
     object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease-in-out;
+}
+.card img:hover{
+    filter: grayscale(0%)
 }
 
 .comprar {
@@ -125,7 +164,16 @@ footer{
     section .pagination {
         display: none;
     }
+    .logo{
+        display: none;
+    }
 }
+@media (max-width: 576px) {
+    .titulo {
+        display: none; /* Oculta el texto */
+    }
+}
+
 
 .pagination {
     display: flex;
